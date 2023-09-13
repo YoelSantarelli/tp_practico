@@ -1,0 +1,15 @@
+version: '3' #Docker-compose version
+services: # Lista de servicios
+  flask_app: #servicio/app de flask
+    build: # Lista de parámetros desde los cuales construir
+      context: . #contexto
+      dockerfile: Dockerfile #archivo de Dockerfile
+    ports: #puerto contenedor:puerto host
+      - "5005:5005"
+    restart: always #en caso de error o falla
+
+#BUILDEO DE CONTENEDOR
+#sudo docker build --tag new_python_docker 
+
+#CORRER EL CONTENEDOR
+#sudo docker run -d -p 5005:5005 new_python_docker mysql:5.7 -u root -pw root -p 3600 (EJEMPLO)
